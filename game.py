@@ -16,3 +16,28 @@ class Card:
     def __str__(self):
         return self.rank + ' ' + self.suit
 
+
+class Deck:
+
+    def __init__(self):
+        self.deck = []
+        for suit in suits:
+            for rank in ranks:
+                self.deck.append(Card(suit, rank))
+
+    def __str__(self):
+        deck_comp = ''
+        for card in self.deck:
+            deck_comp += '\n ' + card.__str__()
+        return 'В колоде находятся:' + deck_comp
+
+    def shuffle(self):
+        random.shuffle(self.deck)
+
+    def deal(self):
+        single_card = self.deck.pop()
+        return single_card
+
+
+test_deck = Deck()
+print(test_deck)
